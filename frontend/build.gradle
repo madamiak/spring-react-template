@@ -1,0 +1,24 @@
+plugins {
+    id 'com.github.node-gradle.node' version '3.1.1'
+    id 'java'
+}
+
+node {
+    version = '16.13.0'
+    npmVersion = '8.1.0'
+    download = true
+}
+
+task npmBuild(type: NpmTask, dependsOn: npmInstall) {
+    args = ['run', 'build']
+}
+
+task npmTest(type: NpmTask) {
+    args = ['run', 'test']
+}
+
+task npmStart(type: NpmTask) {
+    args = ['start']
+}
+
+check.dependsOn(npmTest)

@@ -1,0 +1,36 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends": [
+    "./node_modules/gts/"
+  ],
+  "ignorePatterns": [
+    "config/**",
+    "scripts/**"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.test.js",
+        "*.test.jsx",
+        "*.test.ts",
+        "*.test.tsx",
+        "setupTests.ts"
+      ],
+      "rules": {
+        "node/no-unpublished-import": 0
+      }
+    },
+    {
+      "files": [
+        "jest.config.ts"
+      ],
+      "rules": {
+        "node/no-extraneous-import": 0
+      }
+    }
+  ]
+}
